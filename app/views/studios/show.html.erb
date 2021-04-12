@@ -1,0 +1,9 @@
+<h3><%= @studio.name %>, <%= @studio.location %></h3>
+<h4>Movies:</h4>
+<% @studio.movies.each do |movie| %>
+  <p><%= movie.title %></p>
+<% end %>
+<h4>StudioActors:</h4>
+<% @studio.movies.each do |movie| %>
+  <p><%= movie.actors %></p>
+<% end %>

@@ -40,7 +40,7 @@ RSpec.describe 'the application show page' do
   end
 
 
-  it 'lists all the applications with their attributes' do
+  it 'lists the studio with its attributes' do
     visit "/studios/#{@studio_1.id}"
 
       expect(page).to have_content(@studio_1.name)
@@ -49,5 +49,10 @@ RSpec.describe 'the application show page' do
       expect(page).to have_content(@movie_1.title)
       expect(page).to have_content(@movie_2.title)
       expect(page).to have_content(@movie_3.title)
+
+      expect(page).to have_content(@actor_1.name)
+      expect(page).to have_content(@actor_2.name)
+      expect(page).to have_content(@actor_3.name)
+      expect(page).to have_content(@actor_4.name)
   end
 end
