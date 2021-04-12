@@ -3,3 +3,11 @@
 <% @movie.actors.each do |actor| %>
   <p><%= actor.name %></p>
 <% end %>
+<br>
+<%= form_with url: "/movies/#{@movie.id}", method: :patch, local: true do |f| %>
+<h4><%= f.label :search, "Add an Actor to this Movie" %></h4>
+<%= f.text_field :search %>
+<%= f.submit "Search" %>
+<br>
+<br>
+<% end %>

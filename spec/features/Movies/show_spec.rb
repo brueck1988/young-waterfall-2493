@@ -50,6 +50,17 @@ RSpec.describe 'the movie show page' do
       expect(page).to have_content(@actor_2.name)
       expect(page).to have_content(@actor_3.name)
       expect(page).to have_content(@actor_4.name)
-
   end
+
+  it "an actor can be searched for and added to a movie" do
+      visit "/movies/#{@movie_2.id}"
+      expect(page).to have_button("Search")
+
+      fill_in "Add an Actor to this Movie", with: "Ben Stiller"
+
+      click_button 'Search'
+
+      expect(page).to have_content(@actor_3.name)
+
+    end
 end
