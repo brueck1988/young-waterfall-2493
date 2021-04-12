@@ -4,6 +4,13 @@
   <p><%= movie.title %></p>
 <% end %>
 <h4>StudioActors:</h4>
+<% actors = [] %>
 <% @studio.movies.each do |movie| %>
-  <p><%= movie.actors %></p>
+  <% movie.actors.currently_working.order_by_age.each do |actor| %>
+    <% actors << actor.name %>
+  <% end %>
+<% end %>
+<% actors = actors.uniq %>
+<% actors.each do |actor| %>
+  <p><%= actor %> </p>
 <% end %>
