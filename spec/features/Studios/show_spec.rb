@@ -45,13 +45,19 @@ RSpec.describe 'the studio show page' do
 
       expect(page).to have_content(@studio_1.name)
       expect(page).to have_content(@studio_1.location)
+  end
 
+  it 'lists all movies for the studio' do
+    visit "/studios/#{@studio_1.id}"
       expect(page).to have_content(@movie_1.title)
       expect(page).to have_content(@movie_2.title)
       expect(page).to have_content(@movie_3.title)
+  end
 
-      expect(page).to have_content(@actor_1.name)
+  it 'lists all the studios actors oldest to youngest that are currently working' do
+    visit "/studios/#{@studio_1.id}"
       expect(page).to have_content(@actor_2.name)
+      expect(page).to have_content(@actor_1.name)
       expect(page).to have_content(@actor_3.name)
   end
 end
